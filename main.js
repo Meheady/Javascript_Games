@@ -10,22 +10,31 @@ const resetbtn = document.getElementById('reset');
 let  p1score = 0;
 let p2score = 0;
 let winscore = 5;
+let gameover = false;
 
 playbtn1.addEventListener('click', () =>{
-    p1score = p1score +1;
-    play1Score.textContent=p1score;
+  if (!gameover) {
+    p1score++;
+    
     if (p1score===winscore) {
-      playbtn1.setAttribute('disabled','disabled');
-      playbtn2.setAttribute('disabled','disabled');
+      gameover = true;
+      
     }
+    play1Score.textContent=p1score;
+  }
+  
   });
 
   playbtn2.addEventListener('click', () =>{
-    p2score = p2score +1;
-    play2Score.textContent=p2score;
+    if (!gameover) {
+      p2score++;
+   
     if (p2score===winscore) {
-      playbtn1.setAttribute('disabled','disabled');
-      playbtn2.setAttribute('disabled','disabled');
+      gameover = true;
+      
     }
+    play2Score.textContent=p2score;
+    }
+    
   });
 
